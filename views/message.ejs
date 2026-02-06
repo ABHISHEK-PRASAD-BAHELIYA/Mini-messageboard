@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 min-h-screen flex flex-col items-center justify-center py-10 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+
+    <div class="max-w-2xl w-full bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden transition-colors duration-300">
+        
+        <!-- Header Background (Gradient stays same, but background outside changes) -->
+        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 sm:p-10 text-white">
+            <div class="flex items-center gap-4">
+                <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl font-bold">
+                    <%= message.user.charAt(0).toUpperCase() %>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold"><%= message.user %></h2>
+                    <p class="text-indigo-100 opacity-90 text-sm mt-1">
+                        <%= message.added.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) %>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="p-8 sm:p-10">
+            <p class="text-lg text-slate-800 dark:text-slate-200 leading-relaxed whitespace-pre-wrap font-medium"><%= message.text %></p>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="bg-slate-50 dark:bg-slate-900/50 px-8 py-5 border-t border-slate-100 dark:border-slate-700 flex justify-end transition-colors duration-300">
+            <a href="/" class="inline-flex items-center px-4 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-slate-900 transition shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+                Back to Board
+            </a>
+        </div>
+    </div>
+
+    <!-- Add the same Theme Logic Script here -->
+    <script>
+        // (Copy the exact script block from index.ejs here)
+    </script>
+</body>
+</html>
